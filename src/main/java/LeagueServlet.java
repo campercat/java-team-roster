@@ -11,11 +11,13 @@ public class LeagueServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    League league = League.getLeague();
-    req.setAttribute("league", league);
-    req.setAttribute("teams", league.getTeams());
+    if(req.getServletPath().equals("/")) {
+      League league = League.getLeague();
+      req.setAttribute("league", league);
+      req.setAttribute("teams", league.getTeams());
 
-    RequestDispatcher dispatcher = req.getRequestDispatcher("/views/teams/index.jsp");
-    dispatcher.forward(req, resp);
+      RequestDispatcher dispatcher = req.getRequestDispatcher("/views/teams/index.jsp");
+      dispatcher.forward(req, resp);
+    }
   }
 }
