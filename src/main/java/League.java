@@ -6,10 +6,20 @@ public class League {
   public League() {
     this.teams = new ArrayList<Team>();
   }
+  League league;
 
   public void addTeam(Team team) {
     teams.add(team);
   }
+  public List<Team> getTeams() {
+    return this.teams;
+  }
+
+  public void setTeams(List<Team> teams) {
+    this.teams = teams;
+  }
+
+
 
   static League getLeague() {
     League theLeague = new League();
